@@ -3,7 +3,6 @@ from .key import key
 import requests 
 
 # Create your views here.
-
 def index(request):
     return HttpResponse(get_gold_price())
 

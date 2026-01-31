@@ -1,15 +1,16 @@
 from django.http import HttpResponse
-from key import key
+from .key import key
+import requests 
 
 # Create your views here.
 
 def index(request):
-    return HttpResponse("I track gold")
+    return HttpResponse(get_gold_price())
 
-def make_gapi_request():
+def get_gold_price():
     api_key = key
     symbol = "XAU"
-    curr = "USD"
+    curr = "EUR"
     date = ""
 
     url = f"https://www.goldapi.io/api/{symbol}/{curr}{date}"
@@ -23,9 +24,6 @@ def make_gapi_request():
         response = requests.get(url, headers=headers)
         response.raise_for_status()
 
-        result = response.text
-        print(result)
+        return round(response.json()["price_gram_24k"], 2)
     except requests.exceptions.RequestException as e:
         print("Error:", str(e))
-
-make_gapi_request()

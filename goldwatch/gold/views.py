@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 from .key import key
 from .models import GoldPurchase
 import requests 
@@ -17,7 +17,7 @@ def index(request):
     print(total_gold_in_grams)
     print(current_gold_price)
     calculation = Decimal(current_gold_price) * Decimal(total_gold_in_grams) - total_price
-    return HttpResponse(f"Your profit/loss is: {round(calculation, 2)} €")
+    return render(request, 'index.html', {'calculation': calculation, 'current_gold_price': current_gold_price, 'total_gold_in_grams': total_gold_in_grams, 'toal_price': total_price})
 
 def get_gold_price():
     api_key = key

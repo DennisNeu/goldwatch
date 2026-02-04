@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Watch</title>
+    <meta name="description" content="See how much your gold is worth with real time pricing.">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="favicon.ico">
+
+</head>
+<body>
+    <section id="content">
+        <main> 
+            <h1 class="box">
+                <pre>
+         $$$$$$\            $$\       $$\       $$\      $$\            $$\               $$\       
+        $$  __$$\           $$ |      $$ |      $$ | $\  $$ |           $$ |              $$ |      
+        $$ /  \__| $$$$$$\  $$ | $$$$$$$ |      $$ |$$$\ $$ | $$$$$$\ $$$$$$\    $$$$$$$\ $$$$$$$\  
+        $$ |$$$$\ $$  __$$\ $$ |$$  __$$ |      $$ $$ $$\$$ | \____$$\\_$$  _|  $$  _____|$$  __$$\ 
+        $$ |\_$$ |$$ /  $$ |$$ |$$ /  $$ |      $$$$  _$$$$ | $$$$$$$ | $$ |    $$ /      $$ |  $$ |
+        $$ |  $$ |$$ |  $$ |$$ |$$ |  $$ |      $$$  / \$$$ |$$  __$$ | $$ |$$\ $$ |      $$ |  $$ |
+        \$$$$$$  |\$$$$$$  |$$ |\$$$$$$$ |      $$  /   \$$ |\$$$$$$$ | \$$$$  |\$$$$$$$\ $$ |  $$ |
+        \______/  \______/ \__| \_______|      \__/     \__| \_______|  \____/  \_______|\__|  \__|
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                </pre>
+            </h1>
+            <p>You own: {{ total_gold_in_grams }} g of gold</p>
+            <p>Bought for a total of: {{ total_price }} €</p>
+            <p>Your profit/loss is: {{ calculation }} €</p>
+            <p>Current gold price: {{ current_gold_price }} €</p>
+
+        </main>
+    
+    <footer>
+        <p>Made with ❤️ by <a href="https://github.com/DennisNeu">DennisNeu</a></p>
+    </footer>
+</body>
+</html>

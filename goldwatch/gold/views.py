@@ -12,14 +12,16 @@ def index(request):
     for x in gold_objects:
         total_gold_in_grams = total_gold_in_grams + x.amount_in_grams
         total_price = total_price + x.total_price_eur 
-    current_gold_price = get_gold_price()
+    # current_gold_price = get_gold_price()
+    # Hardcode value for testing/development to exceed free API plan limits
+    current_gold_price = 130 
     print(total_price)
     print(total_gold_in_grams)
     print(current_gold_price)
-    calculation = Decimal(current_gold_price) * Decimal(total_gold_in_grams) - total_price
+    calculation = round(Decimal(current_gold_price) * Decimal(total_gold_in_grams) - total_price, 2)
     return render(request, 'index.html', {'calculation': calculation,
                                           'current_gold_price': current_gold_price,
-                                          'total_gold_in_grams': total_gold_in_grams,
+                                          'total_gold_in_grams': round(total_gold_in_grams, 2),
                                           'total_price': total_price})
 
 def get_gold_price():

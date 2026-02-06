@@ -21,7 +21,7 @@ body {
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
-    height: 100vh;
+    /* height: 100vh; why is this here? */
     overflow: hidden;
     width: 90%;
 }

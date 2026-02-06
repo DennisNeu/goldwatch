@@ -29,11 +29,14 @@
                                                                                                     
                 </pre>
             </h1>
+            <section class="box" id="profit">
+                <p>Your profit/loss is: <span id="gold-worth">{{ calculation }}</span> €</p>
+            </section>
+            <section class="box" id="info">
             <p>Hoard: {{ total_gold_in_grams }} g of gold 💰</p>
             <p>Bought for a total of: {{ total_price }} €</p>
-            <p>Your profit/loss is: {{ calculation }} €</p>
             <p>Current gold price: {{ current_gold_price }} €</p>
-
+            </section>
         </main>
     </section>
     <footer>

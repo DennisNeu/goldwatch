@@ -72,3 +72,11 @@ footer {
 #profit {
     text-align: center;
 }
+
+.negative {
+    background-color: red;
+}
+
+.positive {
+    background-color: greenyellow;
+}

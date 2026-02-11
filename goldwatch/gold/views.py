@@ -13,16 +13,16 @@ def index(request):
         total_gold_in_grams = total_gold_in_grams + x.amount_in_grams
         total_price = total_price + x.total_price_eur 
     # current_gold_price = get_gold_price()
-    # Hardcode value for testing/development to exceed free API plan limits
+    # Hardcode value for testing/development to not exceed free API plan limits
     current_gold_price = 130 
-    print(total_price)
-    print(total_gold_in_grams)
-    print(current_gold_price)
+    current_gold_worth = round(Decimal(total_gold_in_grams) * Decimal(current_gold_price), 2) 
     calculation = round(Decimal(current_gold_price) * Decimal(total_gold_in_grams) - total_price, 2)
     return render(request, 'index.html', {'calculation': calculation,
                                           'current_gold_price': current_gold_price,
                                           'total_gold_in_grams': round(total_gold_in_grams, 2),
-                                          'total_price': total_price})
+                                          'total_price': total_price,
+                                          'current_gold_worth': current_gold_worth,
+                                          })
 
 def get_gold_price():
     api_key = key
